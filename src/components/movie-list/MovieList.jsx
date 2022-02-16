@@ -12,6 +12,7 @@ import tmdbApi, { category } from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
 
 import MovieCard from '../movie-card/MovieCard';
+import { motion } from "framer-motion/dist/framer-motion";
 
 const MovieList = props => {
 
@@ -38,22 +39,22 @@ const MovieList = props => {
         getList();
     }, []);
 
+
+
     return (
-        <div className="movie-list">
-            <Swiper
-                grabCursor={true}
-                spaceBetween={10}
-                slidesPerView={'auto'}
-            >
-                {
-                    items.map((item, i) => (
-                        <SwiperSlide key={i}>
-                            <MovieCard item={item} category={props.category}/>
-                        </SwiperSlide>
-                    ))
-                }
-            </Swiper>
-        </div>
+      <motion.div className="movie-list">
+        <Swiper grabCursor={true} spaceBetween={10} slidesPerView={"auto"}>
+          {items.map((item, i) => (
+            <SwiperSlide key={i}>
+              <MovieCard
+                i={i}
+                item={item}
+                category={props.category}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </motion.div>
     );
 }
 

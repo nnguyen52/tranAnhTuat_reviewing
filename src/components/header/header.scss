@@ -35,7 +35,6 @@
         @include flex(center, space-between);
         height: 100%;
         padding: 0 2rem;
-
         @include mobile {
             justify-content: center;
         }
@@ -43,7 +42,7 @@
 
     &__nav {
         @include flex(center, unset);
-
+        // select all childrens that are siblings 
         & > * ~ * {
             margin-left: 2rem;
         }

@@ -9,17 +9,24 @@ import Footer from './components/footer/Footer';
 
 import Routes from './config/Routes';
 
+// framer motion
+import { AnimatePresence } from "framer-motion/dist/framer-motion"; 
 function App() {
     return (
+      <AnimatePresence exitBeforeEnter>
         <BrowserRouter>
-            <Route render={props => (
-                <>
-                    <Header {...props}/>
-                    <Routes/>
-                    <Footer/>
-                </>
-            )}/>
+          <Route
+            render={(props) => (
+              <>
+                <Header {...props} />
+                <Routes />
+
+                <Footer />
+              </>
+            )}
+          />
         </BrowserRouter>
+      </AnimatePresence>
     );
 }
 
